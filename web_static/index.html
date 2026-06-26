@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOLO Pose</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="viewer">
+        <video id="camera" autoplay playsinline muted></video>
+        <canvas id="capture" width="960" height="540"></canvas>
+        <img id="result" alt="YOLO pose result">
+        <div id="emptyState" class="empty-state">点击开始，允许浏览器使用摄像头</div>
+      </section>
+
+      <aside class="panel">
+        <div class="brand">
+          <h1>YOLO Pose</h1>
+          <p>hand · body · local GPU</p>
+        </div>
+
+        <div class="actions">
+          <button id="startBtn" class="primary">开始</button>
+          <button id="stopBtn" disabled>停止</button>
+        </div>
+
+        <label>
+          检测类型
+          <select id="detectMode">
+            <option value="hand" selected>手部 21 点</option>
+            <option value="body">全身人体姿态</option>
+          </select>
+        </label>
+
+        <label>
+          摄像头
+          <select id="cameraSelect">
+            <option value="">默认摄像头</option>
+          </select>
+        </label>
+
+        <button id="refreshCamerasBtn">刷新摄像头</button>
+
+        <label>
+          模式
+          <select id="profile">
+            <option value="accurate" selected>accurate</option>
+            <option value="balanced">balanced</option>
+            <option value="fast">fast</option>
+          </select>
+        </label>
+
+        <label>
+          推理尺寸
+          <input id="imgsz" type="number" min="320" max="1280" step="32" placeholder="默认">
+        </label>
+
+        <label>
+          手框阈值
+          <input id="conf" type="number" min="0.05" max="0.95" step="0.05" placeholder="默认">
+        </label>
+
+        <label>
+          关节点阈值
+          <input id="kptConf" type="number" min="0.05" max="0.95" step="0.05" placeholder="默认">
+        </label>
+
+        <label>
+          平滑
+          <input id="smooth" type="number" min="0" max="0.95" step="0.05" placeholder="默认">
+        </label>
+
+        <label>
+          最多目标数
+          <input id="maxItems" type="number" min="1" max="8" step="1" value="2">
+        </label>
+
+        <div class="checks">
+          <label><input id="mirror" type="checkbox" checked> 镜像画面</label>
+          <label><input id="labels" type="checkbox"> 显示全部编号</label>
+          <label><input id="augment" type="checkbox"> 增强推理</label>
+        </div>
+
+        <dl class="stats">
+          <div><dt>状态</dt><dd id="status">未启动</dd></div>
+          <div><dt id="countLabel">手数</dt><dd id="detections">0</dd></div>
+          <div><dt>耗时</dt><dd id="latency">-</dd></div>
+          <div><dt>FPS</dt><dd id="fps">-</dd></div>
+        </dl>
+      </aside>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

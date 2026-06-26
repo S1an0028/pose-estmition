@@ -1,0 +1,9 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+torch
+torchvision
+ultralytics
+opencv-python
+numpy
+flask
+waitress

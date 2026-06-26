@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOLO Pose Launcher</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #101214;
+        --panel: #191d22;
+        --line: #303740;
+        --text: #edf2f7;
+        --muted: #9aa6b2;
+        --accent: #22b977;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      main {
+        width: min(560px, calc(100vw - 32px));
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 26px;
+      }
+
+      p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      a,
+      button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 16px;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        background: var(--accent);
+        color: #07110d;
+        font: inherit;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      code {
+        color: var(--text);
+      }
+
+      .hint {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>YOLO Pose</h1>
+      <p>这是本地 HTML 网站入口。网页会连接本机 Python 服务，用 YOLO11 进行手部关键点或全身人体姿态识别。</p>
+      <a href="http://127.0.0.1:7860/">打开网页应用</a>
+      <p class="hint">
+        如果打不开，请先在此文件夹中运行 <code>start_web_yolo.bat</code>，
+        或执行 <code>.\.venv\Scripts\python.exe web_hand_yolo.py</code>。
+      </p>
+    </main>
+  </body>
+</html>
