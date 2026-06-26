@@ -2,6 +2,24 @@
 
 This workspace is configured for YOLO pose experiments with Ultralytics.
 
+## Install From GitHub
+
+```powershell
+git clone https://github.com/S1an0028/pose-estmition.git
+cd pose-estmition
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+The repository includes the two small model weight files used by the app:
+
+- `models/yolo11n-pose-hands-community.pt`
+- `yolo11n-pose.pt`
+
+An NVIDIA GPU is recommended. If CUDA is unavailable, the browser app falls
+back to CPU, but inference will be slower.
+
 ## Activate Environment
 
 ```powershell
@@ -67,7 +85,6 @@ additional local web app that uses the same environment. It can switch between
 the hand keypoint model and the native YOLO11 body pose model.
 
 ```powershell
-cd D:\hand_pose_estimation_workspace
 .\.venv\Scripts\python.exe web_hand_yolo.py
 ```
 
